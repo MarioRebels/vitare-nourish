@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vitaré Nourish — Nutrición que se siente, belleza que se ve</title>
+<link rel="stylesheet" href="_ds/organic-4ee6d531-92a8-43ed-9ad4-b888ca801ec1/styles.css">
+<script src="_ds/organic-4ee6d531-92a8-43ed-9ad4-b888ca801ec1/_ds_bundle.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Vitaré Nourish — the Organic system re-tokenized to the brand's own
+   palette (deep green ground accent, gold second voice, cream page) and
+   its elegant serif display voice, as shown in the brand's own material. */
+:root {
+  --color-bg: #f7f1e3;
+  --color-surface: #fdf9f0;
+  --color-text: #21251f;
+  --color-divider: color-mix(in srgb, #21251f 14%, transparent);
+
+  --color-accent: #235c3c;
+  --color-accent-100: #eaf1e9;
+  --color-accent-200: #d5e3d3;
+  --color-accent-300: #aec8ab;
+  --color-accent-400: #7ba57c;
+  --color-accent-500: #2f6b45;
+  --color-accent-600: #1d4b30;
+  --color-accent-700: #163a26;
+  --color-accent-800: #10291b;
+  --color-accent-900: #0a1a11;
+
+  --color-accent-2: #b0873c;
+  --color-accent-2-100: #fbf3e1;
+  --color-accent-2-200: #f4e5c6;
+  --color-accent-2-300: #e9d199;
+  --color-accent-2-400: #d5b264;
+  --color-accent-2-500: #b98f3a;
+  --color-accent-2-600: #9a762e;
+  --color-accent-2-700: #7b5d24;
+  --color-accent-2-800: #5b451b;
+  --color-accent-2-900: #3c2d11;
+
+  --font-heading: "Cormorant Garamond", Georgia, serif;
+  --font-heading-weight: 600;
+
+  --leading: 28px;
+  --half: 14px;
+  --edge: clamp(20px, 5vw, 72px);
+  --measure: 60ch;
+}
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; text-wrap: pretty; overflow-x: clip; background: var(--color-bg); }
+a { color: var(--color-accent-600); }
+a:hover { color: var(--color-accent); }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 var(--edge); }
+
+.nav { position: sticky; top: 0; z-index: 20;
+  background: color-mix(in srgb, var(--color-bg) 92%, transparent);
+  backdrop-filter: blur(8px);
+  padding-inline: max(var(--edge), calc((100% - 1180px) / 2 + var(--edge)));
+  border-bottom: 1px solid var(--color-divider); }
+.nav-brand { letter-spacing: 0.18em; font-size: 20px; text-transform: uppercase; }
+.nav-brand small { display: block; font-family: var(--font-body); font-size: 9px;
+  letter-spacing: 0.34em; color: var(--color-accent-2-700); margin-top: 2px; }
+.nav a { white-space: nowrap; }
+.nav a.btn-primary { color: var(--color-bg); }
+.nav a.btn-primary:hover { color: var(--color-bg); background: var(--color-accent-600); }
+@media (max-width: 780px) { .nav a { display: none; } }
+
+.kicker { display: block; font-size: 12px; line-height: var(--half);
+  letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600;
+  color: var(--color-accent-2-700); margin: 0 0 var(--leading); }
+
+/* — hero — */
+.hero { position: relative; padding: calc(2.5 * var(--leading)) 0 calc(1.5 * var(--leading));
+  display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  gap: var(--leading) clamp(24px, 5vw, 72px); align-items: center; }
+.hero::before { content: ""; position: absolute; right: -200px; top: -240px;
+  width: 460px; height: 460px; border-radius: 50%;
+  background: var(--color-accent-2-100); z-index: -1; pointer-events: none; }
+@media (max-width: 1420px) { .hero::before { right: -60px; } }
+.display { font-family: var(--font-heading); font-weight: 600;
+  font-size: clamp(42px, 6vw, 74px); line-height: 1.03; letter-spacing: -0.01em; margin: 0; }
+.display .line { display: block; }
+.display em { font-style: italic; font-weight: 500; color: var(--color-accent-2-700); }
+.hero .sub { font-size: 17px; line-height: var(--leading); max-width: 46ch;
+  margin: var(--leading) 0 0; color: color-mix(in srgb, var(--color-text) 80%, transparent); }
+.hero .row { display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--leading); }
+.hero-figure { margin: 0; border-radius: calc(2 * var(--radius-lg)); overflow: hidden;
+  box-shadow: var(--shadow-lg); }
+.hero-figure img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 5; }
+
+/* — seal strip — */
+.seals { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--leading) var(--half); background: var(--color-accent);
+  color: var(--color-bg); border-radius: calc(2 * var(--radius-lg));
+  padding: calc(1.5 * var(--leading)) clamp(20px, 4vw, 56px); }
+.seal { text-align: center; }
+.seal b { display: block; font-family: var(--font-heading); font-size: 20px; letter-spacing: 0.04em; }
+.seal span { display: block; font-size: 12.5px; line-height: var(--half);
+  margin-top: 6px; color: color-mix(in srgb, #ffffff 78%, transparent); }
+@media (max-width: 760px) { .seals { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* — product groups — */
+.group { padding: calc(2.5 * var(--leading)) 0 0; }
+.group-head { display: flex; align-items: baseline; justify-content: space-between;
+  gap: var(--half); flex-wrap: wrap; margin-bottom: var(--leading); }
+.group-title { font-family: var(--font-heading); font-weight: 600;
+  font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; margin: 0; }
+.group-note { font-size: 14px; color: color-mix(in srgb, var(--color-text) 65%, transparent); margin: 0; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: clamp(16px, 2vw, 24px); }
+.p-card { display: flex; flex-direction: column; gap: var(--half);
+  background: var(--color-surface); border-radius: calc(1.5 * var(--radius-lg));
+  padding: calc(1.25 * var(--leading)) clamp(20px, 2.4vw, 30px);
+  box-shadow: var(--shadow-sm); border: 1px solid color-mix(in srgb, var(--color-accent-2) 16%, transparent);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.p-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg);
+  border-color: color-mix(in srgb, var(--color-accent-2) 45%, transparent); }
+.p-media { margin: 0; border-radius: var(--radius-lg); overflow: hidden;
+  background: #f9f3e7; cursor: zoom-in; position: relative; }
+.p-media img { display: block; width: 100%; height: 210px; object-fit: contain;
+  transition: transform .35s ease; }
+.p-card:hover .p-media img { transform: scale(1.05); }
+.p-media::after { content: "Ver en grande"; position: absolute; inset: auto 0 0 0;
+  padding: 8px; text-align: center; font-size: 11.5px; letter-spacing: 0.1em;
+  text-transform: uppercase; font-weight: 600; color: var(--color-bg);
+  background: color-mix(in srgb, var(--color-accent) 88%, transparent);
+  opacity: 0; transition: opacity .2s ease; }
+.p-media:hover::after, .p-media:focus-visible::after { opacity: 1; }
+.p-media:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+.p-name { font-family: var(--font-heading); font-weight: 600; font-size: 26px;
+  line-height: 1.12; margin: 0; letter-spacing: 0.01em; }
+.p-sub { margin: 0; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+  font-weight: 600; color: var(--color-accent-2-700); }
+.p-list { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 9px; flex: 1; }
+.p-list li { position: relative; padding-left: 22px; font-size: 14.5px; line-height: 21px;
+  color: color-mix(in srgb, var(--color-text) 82%, transparent); }
+.p-list li::before { content: ""; position: absolute; left: 0; top: 6px; width: 9px; height: 9px;
+  border-radius: 50%; background: var(--color-accent-300); }
+.p-prices { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;
+  padding-top: var(--half); border-top: 1px solid var(--color-divider); }
+.pill { display: inline-flex; align-items: baseline; gap: 7px; border-radius: 999px;
+  background: var(--color-accent-100); padding: 6px 14px; transition: background .2s ease; }
+.p-card:hover .pill { background: var(--color-accent-200); }
+.pill em { font-style: normal; font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--color-accent-700); }
+.pill b { font-family: var(--font-heading); font-size: 21px; font-weight: 600; color: var(--color-accent-700); }
+.p-ask { align-self: flex-start; margin-top: 4px; font-size: 13.5px; font-weight: 600;
+  text-decoration: none; color: var(--color-accent-2-700);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-accent-2) 45%, transparent); padding-bottom: 2px; }
+.p-ask:hover { color: var(--color-accent); border-color: var(--color-accent); }
+
+/* — split / uso — */
+.split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: var(--leading) clamp(24px, 5vw, 80px); align-items: center;
+  padding: calc(3 * var(--leading)) 0 0; }
+.split-title { font-family: var(--font-heading); font-weight: 600;
+  font-size: clamp(28px, 3.2vw, 38px); line-height: 1.12; margin: 0; }
+.split p { font-size: 15.5px; line-height: var(--leading); max-width: 46ch;
+  color: color-mix(in srgb, var(--color-text) 80%, transparent); margin: var(--half) 0 0; }
+.steps { list-style: none; margin: var(--leading) 0 0; padding: 0; display: grid; gap: var(--half); counter-reset: s; }
+.steps li { counter-increment: s; position: relative; padding-left: 44px;
+  font-size: 15px; line-height: 22px; min-height: 30px; display: flex; align-items: center; }
+.steps li::before { content: counter(s); position: absolute; left: 0; top: 0;
+  width: 30px; height: 30px; border-radius: 50%; background: var(--color-accent);
+  color: var(--color-bg); font-family: var(--font-heading); font-size: 16px;
+  display: grid; place-content: center; }
+.split-figure { margin: 0; border-radius: calc(2 * var(--radius-lg)); overflow: hidden;
+  box-shadow: var(--shadow-md); }
+.split-figure img { display: block; width: 100%; }
+
+/* — precios / mayoreo — */
+.tiers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 2vw, 24px);
+  margin-bottom: calc(1.5 * var(--leading)); }
+.tier { background: var(--color-surface); border-radius: calc(1.5 * var(--radius-lg));
+  padding: calc(1.25 * var(--leading)) clamp(20px, 2.4vw, 28px);
+  border: 1px solid color-mix(in srgb, var(--color-accent-2) 16%, transparent);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.tier:hover { transform: translateY(-4px); box-shadow: var(--shadow-md);
+  border-color: color-mix(in srgb, var(--color-accent-2) 45%, transparent); }
+.seal { transition: transform .25s ease; }
+.seal:hover { transform: translateY(-3px); }
+.tier h3 { font-family: var(--font-heading); font-size: 24px; margin: 0 0 6px; font-weight: 600; }
+.tier p { margin: 0; font-size: 14.5px; line-height: 21px;
+  color: color-mix(in srgb, var(--color-text) 78%, transparent); }
+.table-shell { background: var(--color-surface); border-radius: calc(1.5 * var(--radius-lg));
+  padding: clamp(14px, 2vw, 26px); overflow-x: auto;
+  border: 1px solid color-mix(in srgb, var(--color-accent-2) 16%, transparent); }
+.table th { color: var(--color-accent-700); letter-spacing: 0.12em; }
+.table td { font-size: 14.5px; }
+.table td:not(:first-child), .table th:not(:first-child) { text-align: right; }
+.table tbody tr:hover { background: var(--color-accent-100); }
+.pricenote { font-size: 13px; margin: var(--half) 0 0;
+  color: color-mix(in srgb, var(--color-text) 62%, transparent); }
+
+/* — material gallery — */
+.gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(14px, 2vw, 22px); }
+@media (max-width: 900px) { .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.gallery figure { margin: 0; border-radius: var(--radius-lg); overflow: hidden;
+  box-shadow: var(--shadow-sm); cursor: zoom-in;
+  transition: transform .25s ease, box-shadow .25s ease, filter .25s ease; }
+.gallery figure:hover { transform: translateY(-4px) scale(1.01); box-shadow: var(--shadow-lg); filter: none; }
+.gallery figure:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+.gallery img { display: block; width: 100%; height: 100%; aspect-ratio: 3 / 4;
+  object-fit: contain; background: #f9f3e7; }
+
+/* — lightbox — */
+.lb { position: fixed; inset: 0; z-index: 60; display: none;
+  background: color-mix(in srgb, var(--color-accent-900) 90%, transparent);
+  padding: clamp(16px, 4vw, 56px); box-sizing: border-box;
+  align-items: center; justify-content: center; cursor: zoom-out; }
+.lb[open] { display: flex; }
+.lb img { max-width: 100%; max-height: 100%; object-fit: contain;
+  border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);
+  background: var(--color-bg); animation: lbin .22s ease; }
+@keyframes lbin { from { opacity: 0; transform: scale(.97); } to { opacity: 1; transform: none; } }
+.lb-close { position: absolute; top: 16px; right: 18px; width: 44px; height: 44px;
+  border-radius: 50%; border: none; cursor: pointer; font-size: 22px; line-height: 1;
+  background: var(--color-accent-2); color: #fff; }
+.lb-close:hover { background: var(--color-accent-2-400); }
+.lb-cap { position: absolute; left: 0; right: 0; bottom: 14px; text-align: center;
+  font-size: 13.5px; color: color-mix(in srgb, #ffffff 78%, transparent); }
+
+/* — close — */
+.close { padding: calc(3 * var(--leading)) 0 calc(2 * var(--leading)); }
+.patch { background: var(--color-accent); color: var(--color-bg);
+  border-radius: calc(2 * var(--radius-lg)); padding: calc(2 * var(--leading)) clamp(24px, 5vw, 72px);
+  text-align: center; position: relative; overflow: hidden; }
+.patch h2 { font-family: var(--font-heading); font-weight: 600;
+  font-size: clamp(30px, 4vw, 48px); line-height: 1.08; margin: 0; }
+.patch h2 em { font-style: italic; color: var(--color-accent-2-300); }
+.patch p { font-size: 16px; line-height: var(--leading); margin: var(--leading) auto 0; max-width: 52ch;
+  color: color-mix(in srgb, #ffffff 82%, transparent); }
+.wa { display: inline-flex; align-items: center; gap: 10px; margin-top: var(--leading);
+  background: var(--color-accent-2); color: #ffffff; text-decoration: none;
+  font-weight: 700; font-size: 16px; padding: 15px 30px; border-radius: 999px;
+  min-height: 44px; box-sizing: border-box; }
+.wa:hover { background: var(--color-accent-2-400); color: #ffffff; }
+.wa:active { background: var(--color-accent-2-600); }
+.wa svg { display: block; }
+.patch .fine { font-size: 13px; margin-top: var(--half); color: color-mix(in srgb, #ffffff 60%, transparent); }
+
+footer { padding: 0 0 calc(2 * var(--leading)); display: flex; justify-content: space-between;
+  gap: var(--half); flex-wrap: wrap; font-size: 13px;
+  color: color-mix(in srgb, var(--color-text) 62%, transparent); }
+
+/* floating whatsapp */
+.fab { position: fixed; right: 20px; bottom: 20px; z-index: 30; width: 56px; height: 56px;
+  border-radius: 50%; background: var(--color-accent); color: var(--color-bg);
+  display: grid; place-content: center; box-shadow: var(--shadow-lg); text-decoration: none; }
+.fab:hover { background: var(--color-accent-600); color: var(--color-bg); }
+
+@media (max-width: 900px) {
+  .hero, .split { grid-template-columns: 1fr; }
+  .split-figure { order: -1; }
+  .tiers { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <span class="nav-brand">Vitaré<small>Nourish</small></span>
+  <a href="#cremas">Cremas</a>
+  <a href="#exfoliantes">Exfoliantes</a>
+  <a href="#alimentos">Alimentos funcionales</a>
+  <a href="#precios">Precios</a>
+  <a class="btn btn-primary" href="https://wa.me/5216371340966?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20los%20productos%20Vitar%C3%A9%20Nourish" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+</nav>
+<div class="wrap">
+
+  <section class="hero">
+    <div>
+      <h1 class="display"><span class="line">Tu piel merece</span> <span class="line">lo mejor</span> <span class="line"><em>de la naturaleza.</em></span></h1>
+      <p class="sub">Cremas, exfoliantes y alimentos funcionales artesanales, hechos con sebo de res purificado, ingredientes naturales y cero conservadores. Nutrición que se siente, belleza que se ve.</p>
+      <div class="row">
+        <a class="btn btn-primary" href="https://wa.me/5216371340966?text=Hola%2C%20me%20interesan%20los%20productos%20Vitar%C3%A9%20Nourish.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20informaci%C3%B3n%3F" target="_blank" rel="noopener">Quiero más información</a>
+        <a class="btn btn-ghost" href="#cremas">Ver todos los productos</a>
+      </div>
+    </div>
+    <figure class="hero-figure washed">
+      <img src="uploads/Pagina tia nusi/WhatsApp Image 2026-07-16 at 5.53.42 PM (1).jpeg" alt="Línea completa de productos Vitaré Nourish" />
+    </figure>
+  </section>
+
+  <section class="seals" aria-label="Sellos de la marca">
+    <div class="seal"><b>100%</b><span>Natural</span></div>
+    <div class="seal"><b>Artesanal</b><span>Hecho a mano con amor</span></div>
+    <div class="seal"><b>Sin químicos</b><span>Ni conservadores</span></div>
+    <div class="seal"><b>Sebo de res</b><span>Purificado, ingrediente ancestral</span></div>
+    <div class="seal"><b>Envíos</b><span>A todo México, empaque premium</span></div>
+  </section>
+
+  <section class="group" id="cremas">
+    <div class="group-head">
+      <div>
+        <span class="kicker">Cada producto, un propósito</span>
+        <h2 class="group-title">Cremas y tratamientos</h2>
+      </div>
+      <p class="group-note">Presentaciones de 50 g y 100 g · precio público</p>
+    </div>
+    <div class="grid">
+
+      <article class="p-card">
+        <figure class="p-media"><img src="assets/prod/dia.png" alt="Crema de Día Vitaré Nourish" loading="lazy" /></figure>
+        <p class="p-sub">Hidratación y protección diaria</p>
+        <h3 class="p-name">Crema de Día</h3>
+        <ul class="p-list">
+          <li>Hidrata y nutre durante todo el día</li>
+          <li>Protege contra los daños del ambiente</li>
+          <li>Ayuda a prevenir el envejecimiento prematuro</li>
+          <li>Mejora la elasticidad y firmeza</li>
+          <li>Con sebo de res purificado, aloe vera, niacinamida y filtro solar</li>
+        </ul>
+        <div class="p-prices">
+          <span class="pill"><em>50 g</em><b>$280</b></span>
+          <span class="pill"><em>100 g</em><b>$450</b></span>
+        </div>
+        <a class="p-ask" href="https://wa.me/5216371340966?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20la%20Crema%20de%20D%C3%ADa%20Vitar%C3%A9" target="_blank" rel="noopener">Preguntar por WhatsApp →</a>
+      </article>
+
+      <article class="p-card">
+        <figure class="p-media"><img src="assets/prod/night.png" alt="Crema de Noche Vitaré Nourish" loading="lazy" /></figure>
+        <p class="p-sub">Reparación y nutrición intensa</p>
+        <h3 class="p-name">Crema de Noche</h3>
+        <ul class="p-list">
+          <li>Nutre profundamente mientras duermes</li>
+          <li>Ayuda a regenerar las células de la piel</li>
+          <li>Reduce líneas finas y arrugas</li>
+          <li>Mejora la elasticidad y firmeza</li>
+          <li>Con jojoba, karité, lavanda y colágeno hidrolizado</li>
+        </ul>
+        <div class="p-prices">
+          <span class="pill"><em>50 g</em><b>$300</b></span>
+          <span class="pill"><em>100 g</em><b>$500</b></span>
+        </div>
+        <a class="p-ask" href="https://wa.me/5216371340966?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20la%20Crema%20de%20Noche%20Vitar%C3%A9" target="_blank" rel="noopener">Preguntar por WhatsApp →</a>
+      </article>
+
+      <article class="p-card">
+        <figure class="p-media"><img src="assets/prod/repair.png" alt="Crema Repair Vitaré Nourish" loading="lazy" /></figure>
+        <p class="p-sub">Crema de sebo · repara y protege</p>
+        <h3 class="p-name">Repair</h3>
+        <ul class="p-list">
+          <li>Repara piel seca, agrietada o irritada</li>
+          <li>Ideal para codos, rodillas, talones y manos</li>
+          <li>Restaura la barrera natural de la piel</li>
+          <li>Alivia comezón y resequedad</li>
+          <li>Con manteca de karité, coco y almendras dulces</li>
+        </ul>
+        <div class="p-prices">
+          <span class="pill"><em>50 g</em><b>$230</b></span>
+          <span class="pill"><em>100 g</em><b>$400</b></span>
+        </div>
+        <a class="p-ask" href="https://wa.me/5216371340966?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20la%20crema%20Repair%20Vitar%C3%A9" target="_blank" rel="noopener">Preguntar por WhatsApp →</a>
+      </article>
+
+      <article class="p-card">
+        <figure class="p-media"><img src="assets/prod/eventone.png" alt="Crema Even Tone Vitaré Nourish" loading="lazy" /></figure>
+        <p class="p-sub">Crema aclarante premium</p>
+        <h3 class="p-name">Even Tone</h3>
+        <ul class="p-list">
+          <li>Aclara y unifica el tono de la piel</li>
+          <li>Disminuye visiblemente manchas y zonas oscurecidas</li>
+          <li>Aporta luminosidad natural</li>
+          <li>Ideal para rostro, cuello, axilas, codos y rodillas</li>
+          <li>Con niacinamida, vitamina C y extracto de regaliz</li>
+        </ul>
+        <div class="p-prices">
+          <span class="pill"><em>50 g</em><b>$300</b></span>
+          <span class="pill"><em>100 g</em><b>$450</b></span>
+        </div>
+        <a class="p-ask" href="https://wa.me/5216371340966?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20la%20crema%20Even%20Tone%20Vitar%C3%A9" target="_blank" rel="noopener">Preguntar por WhatsApp →</a>
+      </article>
+
+      <article class="p-card">
+        <figure class="p-media"><img src="assets/prod/bebe.png" alt="Crema Bebé Vitaré Nourish" loading="lazy" /></figure>
+        <p class="p-sub">Para rozaduras y quemaduras</p>
+        <h3 class="p-name">Crema Bebé</h3>
+        <ul class="p-list">
+          <li>Calma rozaduras e irritaciones delicadas</li>
+          <li>Protege la piel más sensible de la familia</li>
+          <li>Con caléndula y zinc</li>
+          <li>Sin parabenos, siliconas ni fragancias artificiales</li>
+        </ul>
+        <div class="p-prices">
+          <span class="pill"><em>100 g</em><b>$400</b></span>
+        </div>
+        <a class="p-ask" href="https://wa.me/5216371340966?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20la%20Crema%20Beb%C3%A9%20Vitar%C3%A9" target="_blank" rel="noopener">Preguntar por WhatsApp →</a>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="group" id="exfoliantes">
+    <div class="group-head">
+      <div>
+        <span class="kicker">Textura y luminosidad</span>
+        <h2 class="group-title">Exfoliantes y mascarillas</h2>
+      </div>
+      <p class="group-note">Café molido, arcilla y sebo de res purificado</p>
+    </div>
+    <div class="grid">
+
+      <article class="p-card">
+        <figure class="p-media"><img src="assets/prod/exf-facial.png" alt="Exfoliante Facial Vitaré Nourish" loading="lazy" /></figure>
+        <p class="p-sub">Con café y sebo de res</p>
+        <h3 class="p-name">Exfoliante Facial</h3>
+        <ul class="p-list">
+          <li>Elimina células muertas e impurezas</li>
+          <li>Suaviza la textura de la piel</li>
+          <li>Activa la renovación celular</li>
+          <li>Deja la piel luminosa, fresca y renovada</li>
+        </ul>
+        <div class="p-prices">
+          <span class="pill"><em>50 g</em><b>$360</b></span>
+          <span class="pill"><em>100 g</em><b>$450</b></span>
+        </div>
+        <a class="p-ask" href="https://wa.me/5216371340966?text=Hola%2C%20quiero%20informaci%C3%B3n%20del%20Exfoliante%20Facial%20Vitar%C3%A9" target="_blank" rel="noopener">Preguntar por WhatsApp →</a>
+      </article>
+
+      <article class="p-card">
+        <figure class="p-media"><img src="assets/prod/exf-corporal.png" alt="Exfoliante Corporal Vitaré Nourish" loading="lazy" /></figure>
+        <p class="p-sub">De café y azúcar</p>
+        <h3 class="p-name">Exfoliante Corporal</h3>
+        <ul class="p-list">
+          <li>Suaviza, exfolia y nutre el cuerpo</li>
+          <li>Mejora la apariencia de la piel áspera</li>
+          <li>Deja la piel renovada y luminosa</li>
+        </ul>
+        <div class="p-prices">
+          <span class="pill"><em>100 g</em><b>$400</b></span>
+        </div>
+        <a class="p-ask" href="https://wa.me/5216371340966?text=Hola%2C%20quiero%20informaci%C3%B3n%20del%20Exfoliante%20Corporal%20Vitar%C3%A9" target="_blank" rel="noopener">Preguntar por WhatsApp →</a>
+      </article>
+
+      <article class="p-card">
+        <figure class="p-media"><img src="assets/prod/exf-cafe.png" alt="Exfoliante Café Vitaré Nourish" loading="lazy" /></figure>
+        <p class="p-sub">Café &amp; cebo · pies y cuerpo</p>
+        <h3 class="p-name">Exfoliante Café</h3>
+        <ul class="p-list">
+          <li>Exfolia suavemente y elimina células muertas</li>
+          <li>Revitaliza zonas ásperas como pies y codos</li>
+          <li>Con café molido, sebo de res y vitamina E</li>
+        </ul>
+        <div class="p-prices">
+          <span class="pill"><em>100 g</em><b>$350</b></span>
+        </div>
+        <a class="p-ask" href="https://wa.me/5216371340966?text=Hola%2C%20quiero%20informaci%C3%B3n%20del%20Exfoliante%20Caf%C3%A9%20Vitar%C3%A9" target="_blank" rel="noopener">Preguntar por WhatsApp →</a>
+      </article>
+
+      <article class="p-card">
+        <figure class="p-media"><img src="assets/prod/mascarilla.png" alt="Mascarilla Café y Cebo Vitaré Nourish" loading="lazy" /></figure>
+        <p class="p-sub">Mascarilla café &amp; cebo</p>
+        <h3 class="p-name">Coffee Mask</h3>
+        <ul class="p-list">
+          <li>Purifica profundamente los poros</li>
+          <li>Mejora la textura y la luminosidad</li>
+          <li>Ayuda a reducir el exceso de grasa</li>
+          <li>Con café, miel, aloe y aceite esencial de lavanda</li>
+        </ul>
+        <div class="p-prices">
+          <span class="pill"><em>100 g</em><b>$360</b></span>
+        </div>
+        <a class="p-ask" href="https://wa.me/5216371340966?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20la%20Mascarilla%20Caf%C3%A9%20%26%20Cebo%20Vitar%C3%A9" target="_blank" rel="noopener">Preguntar por WhatsApp →</a>
+      </article>
+
+      <article class="p-card">
+        <figure class="p-media"><img src="assets/prod/redclay.png" alt="Red Clay Mask Vitaré Nourish" loading="lazy" /></figure>
+        <p class="p-sub">Mascarilla revitalizante</p>
+        <h3 class="p-name">Red Clay Mask</h3>
+        <ul class="p-list">
+          <li>Limpia profundamente la piel</li>
+          <li>Absorbe impurezas y exceso de grasa</li>
+          <li>Aporta luminosidad y vitalidad</li>
+          <li>Deja la piel suave, fresca y renovada</li>
+        </ul>
+        <div class="p-prices">
+          <span class="pill"><em>100 g</em><b>Consultar</b></span>
+        </div>
+        <a class="p-ask" href="https://wa.me/5216371340966?text=Hola%2C%20quiero%20precio%20de%20la%20Red%20Clay%20Mask%20Vitar%C3%A9" target="_blank" rel="noopener">Preguntar por WhatsApp →</a>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="group" id="alimentos">
+    <div class="group-head">
+      <div>
+        <span class="kicker">Bienestar desde el interior</span>
+        <h2 class="group-title">Alimentos funcionales</h2>
+      </div>
+      <p class="group-note">Cocción lenta, sin conservadores, sin gluten</p>
+    </div>
+    <div class="grid">
+
+      <article class="p-card">
+        <figure class="p-media"><img src="assets/prod/caldo.png" alt="Caldo de Hueso Vitaré Nourish" loading="lazy" /></figure>
+        <p class="p-sub">Premium · con tuétano y extra colágeno</p>
+        <h3 class="p-name">Caldo de Hueso</h3>
+        <ul class="p-list">
+          <li>Fortalece articulaciones, huesos y cartílagos</li>
+          <li>Mejora la piel, el cabello y las uñas</li>
+          <li>Apoya la salud digestiva e intestinal</li>
+          <li>Refuerza el sistema inmunológico</li>
+          <li>Hecho a fuego lento con huesos de res seleccionados</li>
+        </ul>
+        <div class="p-prices">
+          <span class="pill"><em>500 ml</em><b>$150</b></span>
+          <span class="pill"><em>1 litro</em><b>$280</b></span>
+        </div>
+        <a class="p-ask" href="https://wa.me/5216371340966?text=Hola%2C%20quiero%20informaci%C3%B3n%20del%20Caldo%20de%20Hueso%20Vitar%C3%A9" target="_blank" rel="noopener">Preguntar por WhatsApp →</a>
+      </article>
+
+      <article class="p-card">
+        <figure class="p-media"><img src="assets/prod/shots.png" alt="Shots Funcionales Vitaré Nourish" loading="lazy" /></figure>
+        <p class="p-sub">Nutrición concentrada · 60 ml</p>
+        <h3 class="p-name">Shots Funcionales</h3>
+        <ul class="p-list">
+          <li>Refuerza el sistema inmunológico</li>
+          <li>Aporta energía natural sin cafeína ni estimulantes</li>
+          <li>Mejora la digestión y reduce la inflamación</li>
+          <li>Jengibre, cúrcuma, jugo de naranja y limón</li>
+          <li>Prensado en frío, sin azúcar añadida</li>
+        </ul>
+        <div class="p-prices">
+          <span class="pill"><em>60 ml</em><b>$45</b></span>
+        </div>
+        <a class="p-ask" href="https://wa.me/5216371340966?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20los%20Shots%20Funcionales%20Vitar%C3%A9" target="_blank" rel="noopener">Preguntar por WhatsApp →</a>
+      </article>
+
+      <article class="p-card">
+        <figure class="p-media"><img src="assets/prod/kit.png" alt="Kit Rutina Premium Vitaré Nourish" loading="lazy" /></figure>
+        <p class="p-sub">Cuidado completo para tu piel</p>
+        <h3 class="p-name">Kit Rutina Premium</h3>
+        <ul class="p-list">
+          <li>Rutina completa: Crema de Día, Crema de Noche, Even Tone, Repair, Exfoliante y Mascarilla</li>
+          <li>Incluye tarjeta de rutina y caja de regalo</li>
+          <li>Resultados visibles con uso constante</li>
+          <li>El regalo perfecto para ti o para alguien especial</li>
+        </ul>
+        <div class="p-prices">
+          <span class="pill"><em>Kit</em><b>$1,599</b></span>
+        </div>
+        <a class="p-ask" href="https://wa.me/5216371340966?text=Hola%2C%20quiero%20informaci%C3%B3n%20del%20Kit%20Rutina%20Premium%20Vitar%C3%A9" target="_blank" rel="noopener">Preguntar por WhatsApp →</a>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="split">
+    <div>
+      <span class="kicker">Modo de uso</span>
+      <h2 class="split-title">Una rutina sencilla, resultados que se ven</h2>
+      <ol class="steps">
+        <li>Limpia tu rostro y seca suavemente.</li>
+        <li>Toma una pequeña cantidad de crema, del tamaño de un grano de arroz.</li>
+        <li>Aplica en rostro, cuello o la zona deseada.</li>
+        <li>Masajea con movimientos circulares hasta su completa absorción.</li>
+        <li>Úsala diariamente: de día con protector solar, de noche para reparar.</li>
+      </ol>
+    </div>
+    <figure class="split-figure washed">
+      <img src="uploads/Pagina tia nusi/WhatsApp Image 2026-07-16 at 5.53.42 PM (2).jpeg" alt="Instructivo de uso de la Crema de Día Vitaré Nourish" />
+    </figure>
+  </section>
+
+  <section class="group" id="precios">
+    <div class="group-head">
+      <div>
+        <span class="kicker">Lista oficial de precios sugeridos</span>
+        <h2 class="group-title">Público, mayoreo y distribuidor</h2>
+      </div>
+    </div>
+    <div class="tiers">
+      <div class="tier"><h3>Público</h3><p>De 1 a 4 piezas. Precio regular de lista.</p></div>
+      <div class="tier"><h3>Mayoreo</h3><p>5 piezas o más, combinables entre productos.</p></div>
+      <div class="tier"><h3>Distribuidor oficial</h3><p>10 piezas o más, o compra mínima de $5,000. Incluye material publicitario digital.</p></div>
+    </div>
+    <div class="table-shell">
+      <table class="table">
+        <thead>
+          <tr><th>Producto</th><th>Público</th><th>Mayoreo</th><th>Distribuidor</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Crema de Día 50 g</td><td>$280</td><td>$230</td><td>$210</td></tr>
+          <tr><td>Crema de Día 100 g</td><td>$450</td><td>$400</td><td>$360</td></tr>
+          <tr><td>Crema de Noche 50 g</td><td>$300</td><td>$250</td><td>$230</td></tr>
+          <tr><td>Crema de Noche 100 g</td><td>$500</td><td>$450</td><td>$410</td></tr>
+          <tr><td>Repair 50 g</td><td>$230</td><td>$190</td><td>$170</td></tr>
+          <tr><td>Repair 100 g</td><td>$400</td><td>$350</td><td>$310</td></tr>
+          <tr><td>Even Tone 50 g</td><td>$300</td><td>$250</td><td>$230</td></tr>
+          <tr><td>Even Tone 100 g</td><td>$500</td><td>$450</td><td>$410</td></tr>
+          <tr><td>Exfoliante Facial 50 g</td><td>$360</td><td>$310</td><td>$280</td></tr>
+          <tr><td>Exfoliante Facial 100 g</td><td>$450</td><td>$400</td><td>$360</td></tr>
+          <tr><td>Exfoliante Café 100 g</td><td>$350</td><td>$300</td><td>$270</td></tr>
+          <tr><td>Exfoliante Corporal 100 g</td><td>$400</td><td>$350</td><td>$310</td></tr>
+          <tr><td>Mascarilla Café &amp; Cebo 100 g</td><td>$360</td><td>$310</td><td>$280</td></tr>
+          <tr><td>Caldo de Hueso 500 ml</td><td>$150</td><td>$120</td><td>$110</td></tr>
+          <tr><td>Caldo de Hueso 1 litro</td><td>$280</td><td>$220</td><td>$200</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pricenote">Precios sugeridos en pesos mexicanos. Ganancia aproximada del distribuidor: $50 a $70 por crema de 50 g, $90 a $140 por crema de 100 g, $70 a $80 por exfoliantes y mascarillas. Envíos a todo México con empaque premium incluido.</p>
+  </section>
+
+  <section class="group">
+    <div class="group-head">
+      <div>
+        <span class="kicker">Material de la marca</span>
+        <h2 class="group-title">Fichas, instructivos y catálogo</h2>
+      </div>
+      <p class="group-note">Pídelos en alta resolución por WhatsApp si eres distribuidor</p>
+    </div>
+    <div class="gallery">
+      <figure class="washed"><img src="uploads/Pagina tia nusi/WhatsApp Image 2026-07-16 at 5.53.42 PM (3).jpeg" alt="Catálogo de productos Vitaré Nourish" /></figure>
+      <figure class="washed"><img src="uploads/Pagina tia nusi/WhatsApp Image 2026-07-16 at 5.53.43 PM (5).jpeg" alt="Ficha del Caldo de Huesos, tratamiento para ingesta diaria" /></figure>
+      <figure class="washed"><img src="uploads/Pagina tia nusi/WhatsApp Image 2026-07-16 at 5.53.43 PM (3).jpeg" alt="Ficha de los Shots Funcionales Vitaré Nourish" /></figure>
+      <figure class="washed"><img src="uploads/Pagina tia nusi/WhatsApp Image 2026-07-16 at 5.53.43 PM (2).jpeg" alt="Cada producto, un propósito — resumen de beneficios" /></figure>
+    </div>
+  </section>
+
+  <section class="close" id="contacto">
+    <div class="patch">
+      <h2>Si es natural, <em>tu piel lo siente.</em></h2>
+      <p>Escríbenos por WhatsApp para pedidos, dudas sobre qué producto es para ti, o para sumarte como distribuidor oficial en tu ciudad.</p>
+      <a class="wa" href="https://wa.me/5216371340966?text=Hola%20Vitar%C3%A9%20Nourish%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20productos" target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.04 21.5h-.01a9.4 9.4 0 0 1-4.79-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.36 9.36 0 0 1-1.44-5A9.45 9.45 0 0 1 18.72 5.3a9.36 9.36 0 0 1 2.78 6.66 9.45 9.45 0 0 1-9.46 9.54zM20.13 3.9A11.36 11.36 0 0 0 12.04.55 11.45 11.45 0 0 0 .6 11.99c0 2.01.53 3.98 1.53 5.72L.5 23.45l5.88-1.54a11.4 11.4 0 0 0 5.66 1.44h.01a11.45 11.45 0 0 0 8.08-19.45z"/></svg>
+        +52 1 637 134 0966
+      </a>
+      <p class="fine">Envíos a todo México · Pedidos y mayoreo por WhatsApp</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Vitaré Nourish® — Nutrición que se siente, belleza que se ve.</span>
+    <span>Productos artesanales · Hecho en México</span>
+  </footer>
+</div>
+<a class="fab" href="https://wa.me/5216371340966?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20los%20productos%20Vitar%C3%A9%20Nourish" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.04 21.5h-.01a9.4 9.4 0 0 1-4.79-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.36 9.36 0 0 1-1.44-5A9.45 9.45 0 0 1 18.72 5.3a9.36 9.36 0 0 1 2.78 6.66 9.45 9.45 0 0 1-9.46 9.54zM20.13 3.9A11.36 11.36 0 0 0 12.04.55 11.45 11.45 0 0 0 .6 11.99c0 2.01.53 3.98 1.53 5.72L.5 23.45l5.88-1.54a11.4 11.4 0 0 0 5.66 1.44h.01a11.45 11.45 0 0 0 8.08-19.45z"/></svg>
+</a>
+<div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+  <button class="lb-close" type="button" aria-label="Cerrar">&times;</button>
+  <img alt="" />
+  <p class="lb-cap"></p>
+</div>
+<script>
+(() => {
+  const lb = document.getElementById('lightbox');
+  const img = lb.querySelector('img');
+  const cap = lb.querySelector('.lb-cap');
+  let last = null;
+  const open = (src, alt, from) => {
+    img.src = src; img.alt = alt; cap.textContent = alt;
+    lb.setAttribute('open', ''); last = from;
+    lb.querySelector('.lb-close').focus();
+  };
+  const close = () => { lb.removeAttribute('open'); img.removeAttribute('src'); if (last) last.focus(); };
+  document.querySelectorAll('.p-media, .gallery figure').forEach((fig) => {
+    const i = fig.querySelector('img');
+    if (!i) return;
+    fig.tabIndex = 0;
+    fig.setAttribute('role', 'button');
+    fig.setAttribute('aria-label', 'Ampliar: ' + i.alt);
+    fig.addEventListener('click', () => open(i.currentSrc || i.src, i.alt, fig));
+    fig.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(i.currentSrc || i.src, i.alt, fig); }
+    });
+  });
+  lb.addEventListener('click', close);
+  addEventListener('keydown', (e) => { if (e.key === 'Escape' && lb.hasAttribute('open')) close(); });
+})();
+</script>
+<template id="__bundler_thumbnail" data-bg-color="#f7f1e3">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+    <rect width="200" height="200" fill="#f7f1e3"/>
+    <circle cx="100" cy="100" r="56" fill="#235c3c"/>
+    <text x="100" y="114" text-anchor="middle" font-family="Georgia, serif" font-size="44" fill="#f7f1e3">VN</text>
+  </svg>
+</template>
+</body>
+</html>

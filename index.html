@@ -4,11 +4,34 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Vitaré Nourish — Nutrición que se siente, belleza que se ve</title>
+<meta name="description" content="Cremas, exfoliantes y alimentos funcionales artesanales con sebo de res purificado, sin químicos ni conservadores. Envíos a todo México, pedidos por WhatsApp." />
+<meta name="theme-color" content="#235c3c" />
+<link rel="canonical" href="https://www.vitarenourish.com/" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+<!-- Vista previa al compartir el enlace por WhatsApp, Facebook o Instagram -->
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="es_MX" />
+<meta property="og:site_name" content="Vitaré Nourish" />
+<meta property="og:url" content="https://www.vitarenourish.com/" />
+<meta property="og:title" content="Vitaré Nourish — Nutrición que se siente, belleza que se ve" />
+<meta property="og:description" content="Cremas, exfoliantes y alimentos funcionales artesanales con sebo de res purificado. Envíos a todo México." />
+<meta property="og:image" content="https://www.vitarenourish.com/assets/og.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+
 <link rel="stylesheet" href="_ds/organic-4ee6d531-92a8-43ed-9ad4-b888ca801ec1/styles.css">
-<script src="_ds/organic-4ee6d531-92a8-43ed-9ad4-b888ca801ec1/_ds_bundle.js"></script>
+<script src="_ds/organic-4ee6d531-92a8-43ed-9ad4-b888ca801ec1/_ds_bundle.js" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Las dos familias en una sola peticion (Figtree la usa el design system) -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+
+<!-- Imagen mas grande de la primera pantalla: se pide antes de leer el CSS -->
+<link rel="preload" as="image" href="assets/fotos/linea-completa-768.webp"
+      imagesrcset="assets/fotos/linea-completa-512.webp 512w, assets/fotos/linea-completa-768.webp 768w, assets/fotos/linea-completa-1024.webp 1024w"
+      imagesizes="(max-width: 900px) 92vw, 440px" />
 <style>
 /* Vitaré Nourish — the Organic system re-tokenized to the brand's own
    palette (deep green ground accent, gold second voice, cream page) and
@@ -67,7 +90,17 @@ a:hover { color: var(--color-accent); }
 .nav a { white-space: nowrap; }
 .nav a.btn-primary { color: var(--color-bg); }
 .nav a.btn-primary:hover { color: var(--color-bg); background: var(--color-accent-600); }
-@media (max-width: 780px) { .nav a { display: none; } }
+/* En movil se ocultan los enlaces de seccion por falta de espacio, pero NO el
+   boton de WhatsApp: es la accion principal de toda la pagina. */
+@media (max-width: 780px) {
+  .nav a:not(.btn) { display: none; }
+  .nav { gap: var(--space-2); }
+  .nav a.btn { font-size: 13px; padding-inline: 16px; }
+}
+
+/* La barra es sticky: sin esto, al pulsar un enlace del menu el titulo de la
+   seccion queda escondido detras de ella. */
+section[id], div[id] { scroll-margin-top: 84px; }
 
 .kicker { display: block; font-size: 12px; line-height: var(--half);
   letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600;
@@ -257,6 +290,45 @@ footer { padding: 0 0 calc(2 * var(--leading)); display: flex; justify-content: 
   .split-figure { order: -1; }
   .tiers { grid-template-columns: 1fr; }
 }
+
+/* — ajustes especificos de movil — */
+
+/* En pantallas tactiles no existe :hover, asi que el aviso "Ver en grande"
+   nunca llegaba a aparecer y nadie descubria que las fotos se amplian. */
+@media (hover: none) {
+  .p-media::after { opacity: 1;
+    background: color-mix(in srgb, var(--color-accent) 70%, transparent); }
+  .p-card:hover { transform: none; }
+  .gallery figure:hover { transform: none; }
+}
+
+/* El aviso de deslizar solo tiene sentido cuando la tabla no cabe entera. */
+.tablehint { display: none; }
+
+/* Areas tactiles. Con el dedo hace falta ~44px de alto para no fallar el
+   toque; con raton bastan menos. Solo se agrandan en pantallas chicas. */
+@media (max-width: 900px) {
+  .btn { min-height: 44px; display: inline-flex; align-items: center;
+    justify-content: center; box-sizing: border-box; }
+
+  /* "Preguntar por WhatsApp" mide 24px de alto y es la accion que mas se usa.
+     En vez de deformar el enlace, se agranda solo su zona sensible al toque
+     con una capa invisible centrada: se ve igual, pero se acierta siempre. */
+  .p-ask { position: relative; }
+  .p-ask::after { content: ""; position: absolute; left: 0; right: 0;
+    top: 50%; transform: translateY(-50%); height: 44px; }
+}
+
+@media (max-width: 620px) {
+  /* La tabla tiene 4 columnas: por debajo de este ancho es mejor que se
+     desplace en horizontal a que aplaste los nombres de producto. */
+  .table { min-width: 440px; }
+  .tablehint { display: block; margin: 0 0 10px; font-size: 12.5px;
+    font-weight: 600; letter-spacing: 0.06em; color: var(--color-accent-2-700); }
+  .hero { padding-top: var(--leading); }
+  /* Deja sitio al boton flotante de WhatsApp para que no tape el pie. */
+  footer { padding-bottom: calc(3 * var(--leading)); }
+}
 </style>
 </head>
 <body>
@@ -280,7 +352,13 @@ footer { padding: 0 0 calc(2 * var(--leading)); display: flex; justify-content: 
       </div>
     </div>
     <figure class="hero-figure washed">
-      <img src="uploads/Pagina tia nusi/WhatsApp Image 2026-07-16 at 5.53.42 PM (1).jpeg" alt="Línea completa de productos Vitaré Nourish" />
+      <img src="assets/fotos/linea-completa-768.webp"
+           srcset="assets/fotos/linea-completa-512.webp 512w, assets/fotos/linea-completa-768.webp 768w, assets/fotos/linea-completa-1024.webp 1024w"
+           sizes="(max-width: 900px) 92vw, 440px"
+           width="1024" height="1280"
+           alt="Línea completa de productos Vitaré Nourish"
+           fetchpriority="high"
+           decoding="async" />
     </figure>
   </section>
 
@@ -303,7 +381,7 @@ footer { padding: 0 0 calc(2 * var(--leading)); display: flex; justify-content: 
     <div class="grid">
 
       <article class="p-card">
-        <figure class="p-media"><img src="assets/prod/dia.png" alt="Crema de Día Vitaré Nourish" loading="lazy" /></figure>
+        <figure class="p-media"><img src="assets/prod/dia.webp" width="560" height="560" alt="Crema de Día Vitaré Nourish" loading="lazy" decoding="async" /></figure>
         <p class="p-sub">Hidratación y protección diaria</p>
         <h3 class="p-name">Crema de Día</h3>
         <ul class="p-list">
@@ -321,7 +399,7 @@ footer { padding: 0 0 calc(2 * var(--leading)); display: flex; justify-content: 
       </article>
 
       <article class="p-card">
-        <figure class="p-media"><img src="assets/prod/night.png" alt="Crema de Noche Vitaré Nourish" loading="lazy" /></figure>
+        <figure class="p-media"><img src="assets/prod/night.webp" width="560" height="560" alt="Crema de Noche Vitaré Nourish" loading="lazy" decoding="async" /></figure>
         <p class="p-sub">Reparación y nutrición intensa</p>
         <h3 class="p-name">Crema de Noche</h3>
         <ul class="p-list">
@@ -339,7 +417,7 @@ footer { padding: 0 0 calc(2 * var(--leading)); display: flex; justify-content: 
       </article>
 
       <article class="p-card">
-        <figure class="p-media"><img src="assets/prod/repair.png" alt="Crema Repair Vitaré Nourish" loading="lazy" /></figure>
+        <figure class="p-media"><img src="assets/prod/repair.webp" width="560" height="560" alt="Crema Repair Vitaré Nourish" loading="lazy" decoding="async" /></figure>
         <p class="p-sub">Crema de sebo · repara y protege</p>
         <h3 class="p-name">Repair</h3>
         <ul class="p-list">
@@ -357,7 +435,7 @@ footer { padding: 0 0 calc(2 * var(--leading)); display: flex; justify-content: 
       </article>
 
       <article class="p-card">
-        <figure class="p-media"><img src="assets/prod/eventone.png" alt="Crema Even Tone Vitaré Nourish" loading="lazy" /></figure>
+        <figure class="p-media"><img src="assets/prod/eventone.webp" width="560" height="560" alt="Crema Even Tone Vitaré Nourish" loading="lazy" decoding="async" /></figure>
         <p class="p-sub">Crema aclarante premium</p>
         <h3 class="p-name">Even Tone</h3>
         <ul class="p-list">
@@ -375,7 +453,7 @@ footer { padding: 0 0 calc(2 * var(--leading)); display: flex; justify-content: 
       </article>
 
       <article class="p-card">
-        <figure class="p-media"><img src="assets/prod/bebe.png" alt="Crema Bebé Vitaré Nourish" loading="lazy" /></figure>
+        <figure class="p-media"><img src="assets/prod/bebe.webp" width="560" height="560" alt="Crema Bebé Vitaré Nourish" loading="lazy" decoding="async" /></figure>
         <p class="p-sub">Para rozaduras y quemaduras</p>
         <h3 class="p-name">Crema Bebé</h3>
         <ul class="p-list">
@@ -404,7 +482,7 @@ footer { padding: 0 0 calc(2 * var(--leading)); display: flex; justify-content: 
     <div class="grid">
 
       <article class="p-card">
-        <figure class="p-media"><img src="assets/prod/exf-facial.png" alt="Exfoliante Facial Vitaré Nourish" loading="lazy" /></figure>
+        <figure class="p-media"><img src="assets/prod/exf-facial.webp" width="560" height="560" alt="Exfoliante Facial Vitaré Nourish" loading="lazy" decoding="async" /></figure>
         <p class="p-sub">Con café y sebo de res</p>
         <h3 class="p-name">Exfoliante Facial</h3>
         <ul class="p-list">
@@ -421,7 +499,7 @@ footer { padding: 0 0 calc(2 * var(--leading)); display: flex; justify-content: 
       </article>
 
       <article class="p-card">
-        <figure class="p-media"><img src="assets/prod/exf-corporal.png" alt="Exfoliante Corporal Vitaré Nourish" loading="lazy" /></figure>
+        <figure class="p-media"><img src="assets/prod/exf-corporal.webp" width="560" height="560" alt="Exfoliante Corporal Vitaré Nourish" loading="lazy" decoding="async" /></figure>
         <p class="p-sub">De café y azúcar</p>
         <h3 class="p-name">Exfoliante Corporal</h3>
         <ul class="p-list">
@@ -436,7 +514,7 @@ footer { padding: 0 0 calc(2 * var(--leading)); display: flex; justify-content: 
       </article>
 
       <article class="p-card">
-        <figure class="p-media"><img src="assets/prod/exf-cafe.png" alt="Exfoliante Café Vitaré Nourish" loading="lazy" /></figure>
+        <figure class="p-media"><img src="assets/prod/exf-cafe.webp" width="560" height="560" alt="Exfoliante Café Vitaré Nourish" loading="lazy" decoding="async" /></figure>
         <p class="p-sub">Café &amp; cebo · pies y cuerpo</p>
         <h3 class="p-name">Exfoliante Café</h3>
         <ul class="p-list">
@@ -451,7 +529,7 @@ footer { padding: 0 0 calc(2 * var(--leading)); display: flex; justify-content: 
       </article>
 
       <article class="p-card">
-        <figure class="p-media"><img src="assets/prod/mascarilla.png" alt="Mascarilla Café y Cebo Vitaré Nourish" loading="lazy" /></figure>
+        <figure class="p-media"><img src="assets/prod/mascarilla.webp" width="560" height="560" alt="Mascarilla Café y Cebo Vitaré Nourish" loading="lazy" decoding="async" /></figure>
         <p class="p-sub">Mascarilla café &amp; cebo</p>
         <h3 class="p-name">Coffee Mask</h3>
         <ul class="p-list">
@@ -467,7 +545,7 @@ footer { padding: 0 0 calc(2 * var(--leading)); display: flex; justify-content: 
       </article>
 
       <article class="p-card">
-        <figure class="p-media"><img src="assets/prod/redclay.png" alt="Red Clay Mask Vitaré Nourish" loading="lazy" /></figure>
+        <figure class="p-media"><img src="assets/prod/redclay.webp" width="560" height="560" alt="Red Clay Mask Vitaré Nourish" loading="lazy" decoding="async" /></figure>
         <p class="p-sub">Mascarilla revitalizante</p>
         <h3 class="p-name">Red Clay Mask</h3>
         <ul class="p-list">
@@ -496,7 +574,7 @@ footer { padding: 0 0 calc(2 * var(--leading)); display: flex; justify-content: 
     <div class="grid">
 
       <article class="p-card">
-        <figure class="p-media"><img src="assets/prod/caldo.png" alt="Caldo de Hueso Vitaré Nourish" loading="lazy" /></figure>
+        <figure class="p-media"><img src="assets/prod/caldo.webp" width="560" height="560" alt="Caldo de Hueso Vitaré Nourish" loading="lazy" decoding="async" /></figure>
         <p class="p-sub">Premium · con tuétano y extra colágeno</p>
         <h3 class="p-name">Caldo de Hueso</h3>
         <ul class="p-list">
@@ -514,7 +592,7 @@ footer { padding: 0 0 calc(2 * var(--leading)); display: flex; justify-content: 
       </article>
 
       <article class="p-card">
-        <figure class="p-media"><img src="assets/prod/shots.png" alt="Shots Funcionales Vitaré Nourish" loading="lazy" /></figure>
+        <figure class="p-media"><img src="assets/prod/shots.webp" width="560" height="560" alt="Shots Funcionales Vitaré Nourish" loading="lazy" decoding="async" /></figure>
         <p class="p-sub">Nutrición concentrada · 60 ml</p>
         <h3 class="p-name">Shots Funcionales</h3>
         <ul class="p-list">
@@ -531,7 +609,7 @@ footer { padding: 0 0 calc(2 * var(--leading)); display: flex; justify-content: 
       </article>
 
       <article class="p-card">
-        <figure class="p-media"><img src="assets/prod/kit.png" alt="Kit Rutina Premium Vitaré Nourish" loading="lazy" /></figure>
+        <figure class="p-media"><img src="assets/prod/kit.webp" width="560" height="560" alt="Kit Rutina Premium Vitaré Nourish" loading="lazy" decoding="async" /></figure>
         <p class="p-sub">Cuidado completo para tu piel</p>
         <h3 class="p-name">Kit Rutina Premium</h3>
         <ul class="p-list">
@@ -562,7 +640,13 @@ footer { padding: 0 0 calc(2 * var(--leading)); display: flex; justify-content: 
       </ol>
     </div>
     <figure class="split-figure washed">
-      <img src="uploads/Pagina tia nusi/WhatsApp Image 2026-07-16 at 5.53.42 PM (2).jpeg" alt="Instructivo de uso de la Crema de Día Vitaré Nourish" />
+      <img src="assets/fotos/instructivo-dia-768.webp"
+           srcset="assets/fotos/instructivo-dia-512.webp 512w, assets/fotos/instructivo-dia-768.webp 768w, assets/fotos/instructivo-dia-1024.webp 1024w"
+           sizes="(max-width: 900px) 92vw, 530px"
+           width="1024" height="1536"
+           alt="Instructivo de uso de la Crema de Día Vitaré Nourish"
+           loading="lazy"
+           decoding="async" />
     </figure>
   </section>
 
@@ -578,6 +662,7 @@ footer { padding: 0 0 calc(2 * var(--leading)); display: flex; justify-content: 
       <div class="tier"><h3>Mayoreo</h3><p>5 piezas o más, combinables entre productos.</p></div>
       <div class="tier"><h3>Distribuidor oficial</h3><p>10 piezas o más, o compra mínima de $5,000. Incluye material publicitario digital.</p></div>
     </div>
+    <p class="tablehint" aria-hidden="true">Desliza la tabla de lado para ver todos los precios →</p>
     <div class="table-shell">
       <table class="table">
         <thead>
@@ -614,10 +699,38 @@ footer { padding: 0 0 calc(2 * var(--leading)); display: flex; justify-content: 
       <p class="group-note">Pídelos en alta resolución por WhatsApp si eres distribuidor</p>
     </div>
     <div class="gallery">
-      <figure class="washed"><img src="uploads/Pagina tia nusi/WhatsApp Image 2026-07-16 at 5.53.42 PM (3).jpeg" alt="Catálogo de productos Vitaré Nourish" /></figure>
-      <figure class="washed"><img src="uploads/Pagina tia nusi/WhatsApp Image 2026-07-16 at 5.53.43 PM (5).jpeg" alt="Ficha del Caldo de Huesos, tratamiento para ingesta diaria" /></figure>
-      <figure class="washed"><img src="uploads/Pagina tia nusi/WhatsApp Image 2026-07-16 at 5.53.43 PM (3).jpeg" alt="Ficha de los Shots Funcionales Vitaré Nourish" /></figure>
-      <figure class="washed"><img src="uploads/Pagina tia nusi/WhatsApp Image 2026-07-16 at 5.53.43 PM (2).jpeg" alt="Cada producto, un propósito — resumen de beneficios" /></figure>
+      <figure class="washed"><img src="assets/fotos/catalogo-512.webp"
+           srcset="assets/fotos/catalogo-512.webp 512w, assets/fotos/catalogo-768.webp 768w, assets/fotos/catalogo-1024.webp 1024w"
+           sizes="(max-width: 900px) 44vw, 250px"
+           width="1024" height="1536"
+           alt="Catálogo de productos Vitaré Nourish"
+           loading="lazy"
+           decoding="async"
+           data-full="assets/fotos/catalogo-1024.webp" /></figure>
+      <figure class="washed"><img src="assets/fotos/ficha-caldo-512.webp"
+           srcset="assets/fotos/ficha-caldo-512.webp 512w, assets/fotos/ficha-caldo-768.webp 768w, assets/fotos/ficha-caldo-1024.webp 1024w"
+           sizes="(max-width: 900px) 44vw, 250px"
+           width="1024" height="1536"
+           alt="Ficha del Caldo de Huesos, tratamiento para ingesta diaria"
+           loading="lazy"
+           decoding="async"
+           data-full="assets/fotos/ficha-caldo-1024.webp" /></figure>
+      <figure class="washed"><img src="assets/fotos/ficha-shots-512.webp"
+           srcset="assets/fotos/ficha-shots-512.webp 512w, assets/fotos/ficha-shots-768.webp 768w, assets/fotos/ficha-shots-1024.webp 1024w"
+           sizes="(max-width: 900px) 44vw, 250px"
+           width="1024" height="819"
+           alt="Ficha de los Shots Funcionales Vitaré Nourish"
+           loading="lazy"
+           decoding="async"
+           data-full="assets/fotos/ficha-shots-1024.webp" /></figure>
+      <figure class="washed"><img src="assets/fotos/beneficios-512.webp"
+           srcset="assets/fotos/beneficios-512.webp 512w, assets/fotos/beneficios-768.webp 768w, assets/fotos/beneficios-1024.webp 1024w"
+           sizes="(max-width: 900px) 44vw, 250px"
+           width="1024" height="1536"
+           alt="Cada producto, un propósito — resumen de beneficios"
+           loading="lazy"
+           decoding="async"
+           data-full="assets/fotos/beneficios-1024.webp" /></figure>
     </div>
   </section>
 
@@ -664,9 +777,12 @@ footer { padding: 0 0 calc(2 * var(--leading)); display: flex; justify-content: 
     fig.tabIndex = 0;
     fig.setAttribute('role', 'button');
     fig.setAttribute('aria-label', 'Ampliar: ' + i.alt);
-    fig.addEventListener('click', () => open(i.currentSrc || i.src, i.alt, fig));
+    // data-full apunta a la version grande. Sin el, en movil se ampliaria la
+    // miniatura que eligio el srcset y "Ver en grande" se veria borroso.
+    const grande = () => i.dataset.full || i.currentSrc || i.src;
+    fig.addEventListener('click', () => open(grande(), i.alt, fig));
     fig.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(i.currentSrc || i.src, i.alt, fig); }
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(grande(), i.alt, fig); }
     });
   });
   lb.addEventListener('click', close);

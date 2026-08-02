@@ -1,5 +1,10 @@
 /* Organic — design-system tokens and component classes. This file is the source of truth for the system's look; retune it here and see readme.md. */
-@import url('https://fonts.googleapis.com/css2?family=Caprasimo:wght@400&family=Figtree:wght@400;600;700&display=swap');
+/* Las fuentes se cargan desde el <link> de index.html, no con @import.
+   Un @import aqui obliga al navegador a bajar primero esta hoja para recien
+   entonces descubrir que necesita las fuentes: dos viajes de red encadenados
+   antes de poder pintar texto, muy caro en movil.
+   Caprasimo se retiro porque index.html sobrescribe --font-heading con
+   "Cormorant Garamond", asi que se descargaba sin llegar a usarse nunca. */
 
 :root {
   --color-bg: #f5ead8;

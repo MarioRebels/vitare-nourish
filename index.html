@@ -75,6 +75,11 @@
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body { margin: 0; text-wrap: pretty; overflow-x: clip; background: var(--color-bg); }
+/* Las <img> traen width/height en el HTML para reservar su espacio y evitar
+   saltos al cargar. Ese height es un valor fijo en pixeles: si el CSS luego
+   encoge el ancho y no libera el alto, la imagen se deforma. Esta regla lo
+   libera por defecto; las reglas que fijan un alto propio la sobreescriben. */
+img { height: auto; }
 a { color: var(--color-accent-600); }
 a:hover { color: var(--color-accent); }
 .wrap { max-width: 1180px; margin: 0 auto; padding: 0 var(--edge); }
@@ -202,7 +207,7 @@ section[id], div[id] { scroll-margin-top: 84px; }
   display: grid; place-content: center; }
 .split-figure { margin: 0; border-radius: calc(2 * var(--radius-lg)); overflow: hidden;
   box-shadow: var(--shadow-md); }
-.split-figure img { display: block; width: 100%; }
+.split-figure img { display: block; width: 100%; height: auto; }
 
 /* — precios / mayoreo — */
 .tiers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 2vw, 24px);

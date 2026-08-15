@@ -1,2 +1,20 @@
 NOTAS-DOMINIO.md
 .claude/
+
+# --- Nada de lo de abajo se publica en el sitio ---
+# Todos estos archivos SIGUEN en tu computadora. Solo dejan de subirse a
+# internet. Si borras esta seccion, vuelven a publicarse.
+
+# Fotos originales. _optimizar.py las lee para generar los WebP del sitio,
+# asi que hacen falta aqui, pero no tienen por que estar publicas.
+/uploads/
+# OJO: solo los .png. Los .webp de esta misma carpeta SI los usa el sitio
+# (son las 13 fotos de producto). No cambiar esta linea por /assets/prod/.
+/assets/prod/*.png
+/assets/photo.jpg
+/assets/src-catalogo.jpeg
+
+# Sobras del generador de plantillas: index.html nunca las usa.
+/image-slot.js
+/ds-base.js
+/.thumbnail

@@ -1,32 +1,21 @@
 # PENDIENTES DE VITARÉ — solo lo VIVO
 
-> 🔴 **ABIERTO HOY — 2026-09-03** (medido contra disco, GitHub y el sitio vivo)
+> 🔴 **ABIERTO HOY — 2026-09-04** (medido contra disco, el sitio local y git)
 >
 > REGLA: **lo cerrado se BORRA** (la evidencia vive en git y la bitácora).
 > Cada renglón dice cómo se comprueba.
 
-## 1 · Pedir a soporte de GitHub que purgue los objetos viejos del repo
+## 1 · Faltan precios de los tres productos nuevos
 
-El 03-sep se reescribió el historial y se hizo force push: los 30 archivos privados
-ya no están en ningún commit. Pero GitHub sigue sirviendo los objetos viejos si se
-conoce el SHA antiguo. Solo soporte de GitHub los borra, y **solo Mario lo manda**
-desde https://support.github.com/request con su cuenta.
+Los tres ya están publicados en el apartado **Novedades**, pero la tabla de
+precios (público / mayoreo / distribuidor) no los incluye porque no se tienen
+los números. Solo Mario los puede dar.
 
-Cómo se comprueba (debe dar 404; hoy da 200):
-```
-curl -sI https://raw.githubusercontent.com/MarioRebels/vitare-nourish/6510bc5/assets/src-catalogo.jpeg
-```
+| Producto | Lo que hay hoy en el sitio | Lo que falta |
+|---|---|---|
+| Crema para Hombre 60 g | Sin precio, solo enlace a WhatsApp | Los tres precios |
+| Ritual Vitaré (kit) | $850 público, precio promocional | Mayoreo y distribuidor |
+| Repair de cebo | Usa los del Repair en frasco: $230 / $400 | Confirmar si la lata del cartel es otra presentación con otro precio |
 
-Texto listo para pegar:
-```
-Repository: MarioRebels/vitare-nourish
-
-I rewrote the history of this repository with git-filter-repo and
-force-pushed to remove files that should not have been published.
-The refs are clean, but the old objects are still served through
-raw.githubusercontent.com and the commit view when the old SHA is
-known (e.g. commit 6510bc5).
-
-Please run garbage collection on this repository and purge the
-cached views of the unreachable objects.
-```
+Cómo se comprueba: la tabla de `index.html` (sección `#precios`) tiene un
+renglón por cada uno de los tres.

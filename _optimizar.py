@@ -14,6 +14,10 @@ FOTOS = {
     f"{U}/WhatsApp Image 2026-07-16 at 5.53.43 PM (5).jpeg": "ficha-caldo",
     f"{U}/WhatsApp Image 2026-07-16 at 5.53.43 PM (3).jpeg": "ficha-shots",
     f"{U}/WhatsApp Image 2026-07-16 at 5.53.43 PM (2).jpeg": "beneficios",
+    # Carteles de los tres productos nuevos (04-sep-2026)
+    f"{U}/vitare onvres.jpeg": "hombre",
+    f"{U}/vitare talones.jpeg": "talones",
+    f"{U}/vitare ritual.jpeg": "ritual",
 }
 ANCHOS = [512, 768, 1024]     # variantes responsive; la de 1024 es la del lightbox
 

@@ -18,3 +18,13 @@ NOTAS-DOMINIO.md
 /image-slot.js
 /ds-base.js
 /.thumbnail
+
+# Secretos: nunca se versionan (repo PUBLICO)
+.env
+.env.*
+!.env.ejemplo
+*.key
+*.pem
+
+# Instrucciones de Claude Code para esta maquina/sesion: no se publican
+CLAUDE.md
